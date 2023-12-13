@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'Cafe24Moyamoya-Face-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Face-v1.0.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to bottom, #134d23, rgb(31, 31, 31)); /* 배경 색상 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+p{
+    font-family: 'Cafe24Moyamoya-Face-v1.0';
+   
+    font-size: 2.2rem;
+    text-shadow: -1px 0px white, 1px 1px green, 1px 0px green, 0px -1px green;
+}
+
+button{
+    font-weight: 200;
+    font-family: galmuri11;
+}
+button{
+   
+    background-color:#051a0e;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+    width: 664px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+.image-container {
+    position: relative;
+    
+    width: 2310px;
+    top: 0;
+    margin: auto;
+    overflow: hidden;
+    animation: shake 0.5s cubic-bezier(.08,.82,.6,.2) infinite alternate; /* 0.5초 간격으로 흔들리는 애니메이션 반복 */
+}
+
+
+.image-container img {
+    position: absolute;
+    width: 2310px;
+
+    
+    /* 다양한 이미지에 대해 z-index 값을 조절 */
+}
+.image-container video {
+    width: 2310px;
+    height: 1270px
+    object-fit: cover;
+    z-index: 4; /* 이미지보다 위에 표시되도록 설정 */
+}
+
+#cha{
+ z-index: 7;
+
+}
+
+.flow
+{   
+    position: absolute;
+    z-index: 3;
+    width: 3534px;
+    height: 1834px;
+    background-image: url('./flow.png');
+    background-size: cover;
+    animation: moveBackground 2s linear infinite; /* 1초 동안 왼쪽으로 무한 이동 */
+}
+
+.flow0
+{   
+    position: absolute;
+    z-index: 3;
+    width: 3534px;
+    height: 1834px;
+    background-image: url('./flow0.png');
+    background-size: cover;
+    animation: moveBackground 3s linear infinite; /* 1초 동안 왼쪽으로 무한 이동 */
+}
+
+.flow2
+{   
+    position: absolute;
+    z-index: 3;
+    width: 3534px;
+    height: 1834px;
+    background-image: url('./flow.png');
+    background-size: cover;
+    animation: moveBackground 1s linear infinite; /* 1초 동안 왼쪽으로 무한 이동 */
+}
+
+.flow3
+{   
+    position: absolute;
+    z-index: 3;
+    width: 3534px;
+    height: 1834px;
+    background-image: url('./flow.png');
+    background-size: cover;
+    animation: moveBackground 6s linear infinite; /* 1초 동안 왼쪽으로 무한 이동 */
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 center;
+    }
+    100% {
+        background-position: -3534px center;
+    }
+}
+#flow{
+   
+}   
+#subway{
+    z-index: 5;
+
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25%, 75% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(5px);
+    }}
+
+#video{
+    z-index: 1;
+}
+
+#text{
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    width: 500px;
+    bottom: 100px;
+    background-color: white;
+    padding: 20px;
+}
+
+
+.text_container{
+    position: absolute;
+    z-index: 10;
+    top: 692px;
+    left: 918px;
+    width: 676px;
+    
+}
+
+.inner_text
+{
+    
+}
+
+.butten{
+   
+}
+
+.copy{
+    position: absolute;
+    bottom: 1vw;
+    color: white;
+    z-index: 20;
+}

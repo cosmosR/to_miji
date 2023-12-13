@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>간단한 웹페이지</title>
+    
+    <style>
+        @import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+        .page2, .page3, .page4 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <span class="copy">Copyright 2023. Min Gayoung  all rights reserved. @niyonng</span>
+
+<div id="page1" class="page1">
+    <div>
+        
+        <div class="image-container">
+            <div class="text_container">
+                <p class="inner_text" style="color: whitesmoke;"> 당신은 익숙한 고향을 떠나 <br> 「미지」행 열차에 탑승했습니다. <br>지금부터 미지로 떠난 나의 미래와 곧 도착할 미지의 지역에 대한 것을 상상해봅니다.</p>
+                <button class="butten" onclick="changePage()">-생각해보았다.</button>
+                
+                </div>
+            <img src="cha0.png" alt="Image 1" id="cha">
+            <img src="subway0.png" alt="Image 3" id="subway">
+            <div class="flow0"></div>
+            <video src="sample0.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
+            
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+</div>
+
+<div id="page2" class="page2">
+    <div>
+        <div class="image-container">
+            <img src="cha1.png" alt="Image 1" id="cha">
+            <img src="subway.png" alt="Image 3" id="subway">
+            <div class="flow"></div>
+            <video src="sample.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
+            <div class="text_container">
+        <p>세상은 마음 먹기에 따라 다른 색채와 풍경으로 보이기도 합니다. <br>*당신의 미지의 감정은 어떤가요?
+            <br>새로운 장소와 만남을 향하는 이 지하철이 기대의 설렘을 주나요? <br>아니면, 낯선 곳에 도착하는 이 지하철이 공포스럽고 두려운가요?
+        </p>
+        <button onclick="changeSubPage(3)" id="button1">-설레임에 붕 뜬 느낌이다.</button>
+        <button onclick="changeSubPage(4)" id="button2">-두려움때문에 눈 뜨고 싶지 않다.</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div id="page3" class="page3">
+    <div>
+        <div class="image-container">
+            <img src="cha2.png" alt="Image 1" id="cha">
+            <img src="subway2.png" alt="Image 3" id="subway">
+            <div class="flow2"></div>
+            <video src="sample2.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
+            <div class="text_container">
+        <p>당신은 새로운 곳에 가는 설렘에 지하철을 타는 시간이 빠르게 느껴지고 바깥 풍경이 분홍빛 환상적인 공간으로 변합니다.</p>
+        
+        <p id="clickCount1">0번 클릭되었습니다</p>
+        <button onclick="changeSubPage(4)" id="button1">다른 선택지 함께보기</button>
+       
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<div id="page4" class="page4">
+    <div>
+        <div class="image-container">
+            <img src="cha3.png" alt="Image 1" id="cha">
+            <img src="subway3.png" alt="Image 3" id="subway">
+            <div class="flow3"></div>
+            <video src="sample3.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
+            <div class="text_container">
+        <p>새로운 곳은 나를 받아주지 않을 것 같고, 내가 알고있던 것들이 모두 통하지 않는 이상한 세계일 것만 같습니다. 지하철이 느리게 흘러가 마치 나의 두려움을 증폭시키려는 듯 움직입니다.</p>
+       
+        <p id="clickCount2">0번 클릭되었습니다</p>
+        <button onclick="changeSubPage(3)" id="button1">다른 선택지 함께보기</button>
+        
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<script>
+    function changePage() {
+        document.getElementById('page1').style.display = 'none';
+        document.getElementById('page2').style.display = 'block';
+    }
+
+    function changeSubPage(pageNumber) {
+        hideAllPages();
+        document.getElementById('page' + pageNumber).style.display = 'block';
+    }
+
+    function hideAllPages() {
+        document.getElementById('page1').style.display = 'none';
+        document.getElementById('page2').style.display = 'none';
+        
+    }
+
+
+    function handleButtonClick(buttonId, countId) {
+      // Check if there is a previous click count in local storage for the specific button
+      let clickCount = localStorage.getItem(buttonId) || 0;
+
+      // Display the initial click count
+      document.getElementById(countId).textContent = `${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
+
+      // Add click event listener to the button
+      document.getElementById(buttonId).addEventListener('click', function() {
+        // Increment the click count
+        clickCount++;
+
+        // Update the display
+        document.getElementById(countId).textContent = `${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
+
+        // Store the updated click count in local storage
+        localStorage.setItem(buttonId, clickCount);
+      });
+    }
+
+    // Call the function for each button
+    handleButtonClick('button1', 'clickCount1');
+    handleButtonClick('button2', 'clickCount2');
+</script>
+
+</body>
+</html>
+
+
