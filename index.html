@@ -21,8 +21,9 @@
         
         <div class="image-container">
             <div class="text_container">
+                
                 <p class="inner_text" style="color: whitesmoke;"> 당신은 익숙한 고향을 떠나 <br> 「미지」행 열차에 탑승했습니다. <br>지금부터 미지로 떠난 나의 미래와 곧 도착할 미지의 지역에 대한 것을 상상해봅니다.</p>
-                <button class="butten" onclick="changePage()">-생각해보았다.</button>
+                <button class="butten" onclick="changePage(), changeBackgroundColor('linear-gradient(to bottom, #134d23, rgb(31, 31, 31))')">-상상해보았다.</button>
                 
                 </div>
             <img src="cha0.png" alt="Image 1" id="cha">
@@ -43,11 +44,11 @@
             <div class="flow"></div>
             <video src="sample.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
             <div class="text_container">
-        <p>세상은 마음 먹기에 따라 다른 색채와 풍경으로 보이기도 합니다. <br>*당신의 미지의 감정은 어떤가요?
+        <p>세상은 마음 먹기에 따라 다른 색채와 풍경으로 보이기도 합니다. <br><span style="color: white;background-color: rgb(0, 38, 255);">*당신의 미지의 감정은 어떤가요?</span>
             <br>새로운 장소와 만남을 향하는 이 지하철이 기대의 설렘을 주나요? <br>아니면, 낯선 곳에 도착하는 이 지하철이 공포스럽고 두려운가요?
         </p>
-        <button onclick="changeSubPage(3)" id="button1">-설레임에 붕 뜬 느낌이다.</button>
-        <button onclick="changeSubPage(4)" id="button2">-두려움때문에 눈 뜨고 싶지 않다.</button>
+        <button onclick="changeSubPage(3), changeBackgroundColor('linear-gradient(to bottom, #ffffff, rgb(201, 194, 211))')" id="button1">-설레임에 붕 뜬 느낌이다.</button>
+        <button onclick="changeSubPage(4), changeBackgroundColor('linear-gradient(to bottom, #252227, rgb(25, 79, 194))')" id="button2">-무섭고 두려워서 돌아가고 싶다.</button>
         </div>
         </div>
     </div>
@@ -92,6 +93,10 @@
 </div>
 
 <script>
+    window.onload = function() {
+      alert("ctrl+마우스휠로 전체 이미지가 보이도록 화면을 조정해주세요.");
+    };
+
     function changePage() {
         document.getElementById('page1').style.display = 'none';
         document.getElementById('page2').style.display = 'block';
@@ -114,7 +119,7 @@
       let clickCount = localStorage.getItem(buttonId) || 0;
 
       // Display the initial click count
-      document.getElementById(countId).textContent = `${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
+      document.getElementById(countId).textContent = `-${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
 
       // Add click event listener to the button
       document.getElementById(buttonId).addEventListener('click', function() {
@@ -122,7 +127,7 @@
         clickCount++;
 
         // Update the display
-        document.getElementById(countId).textContent = `${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
+        document.getElementById(countId).textContent = `-${clickCount}명의 사람이 같은 감정을 느낀다고 답했습니다.`;
 
         // Store the updated click count in local storage
         localStorage.setItem(buttonId, clickCount);
@@ -132,6 +137,11 @@
     // Call the function for each button
     handleButtonClick('button1', 'clickCount1');
     handleButtonClick('button2', 'clickCount2');
+
+    function changeBackgroundColor(color) {
+      // body의 배경색을 클릭된 버튼에 해당하는 색으로 변경
+      document.body.style.background = color;
+    }
 </script>
 
 </body>
